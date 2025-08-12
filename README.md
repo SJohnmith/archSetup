@@ -43,5 +43,16 @@ fatal: Authentication failed for 'https://github.com/SJohnmith/archSetup.git/'
 
 To resolve you will need to ...
 
+Arduino:
+To resolve the fatal esptool.py error occured see the following,
+https://forum.manjaro.org/t/arduino-ide-1-8-13-a-fatal-esptool-py-error-occurred-errno-2-could-not-open-port-dev-ttyusb0/168003
+or
+Run the following in terminal, sudo chmod a+rw /dev/ttyUSB0
+
+To fix,
+Port monitor error: command 'open' failed: Permission denied. Could not connect to /dev/ttyUSB0 serial port.
+Run
+sudo chmod a+rw /dev/ttyUSB0   
+
 Some Ricing:
 https://www.reddit.com/r/unixporn/comments/1hh6pk6/kde_plasma_6_got_a_bit_too_excited_with/
