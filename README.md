@@ -3,12 +3,17 @@ Playing around with arch linux system.
 
 TO DO:
 1 - Learn to use Vim and customize it. 
-2 - Install: FreeCad, Godot 4, Inkscape, Steam, Discord.
+2 - Essentials: Image Viewer, Audio Player, Video Player, Alternatives to Word, Excel, Point.
+3 - Install: FreeCad, Godot 4, Inkscape, Steam, Discord.
 
 THINGS TO TRY OUT:
-a - Try KDE and Hyperland
-b - Figure out recreate my setup on another machine quickly.
-1 - Learn how to set GTK ot QT theme to match GUI applications.
+1 - Try KDE and Hyperland
+2 - Figure out recreate my setup on another machine quickly.
+3 - Learn how to set GTK ot QT theme to match GUI applications.
+
+How to install FreeCAD 0.21.2:
+
+Step 1 — Install Pixi
 
 How to install Python 3.10.5:
 
@@ -53,6 +58,25 @@ To fix,
 Port monitor error: command 'open' failed: Permission denied. Could not connect to /dev/ttyUSB0 serial port.
 Run
 sudo chmod a+rw /dev/ttyUSB0   
+
+Image Viewer:
+For personal use and functionality use geeqie simply run,
+sudo pacman -S geeqie
+
+Video Player:
+yay -S vlc
+
+How to Fix:
+An error occurred while accessing 'TOSHIBA 1TB', the system responded: The requested operation has failed: Error mounting /dev/sda1 at /run/media/kmi/TOSHIBA 1TB: wrong fs type, bad option, bad superblock on /dev/sda1, missing codepage or helper program, or other error
+
+Zero Identify Filesystem Type: sudo blkid /dev/sda1
+
+First Install NTFS: sudo pacman -S ntfs-3g
+Second Run Filesystem Repair: sudo ntfsfix /dev/sda1
+Third Manual Mounting: 
+    sudo mkdir /mnt/toshiba
+    sudo mount -t auto /dev/sda1 /mnt/toshiba
+
 
 Some Ricing:
 https://www.reddit.com/r/unixporn/comments/1hh6pk6/kde_plasma_6_got_a_bit_too_excited_with/
