@@ -66,7 +66,10 @@ sudo pacman -S geeqie
 Video Player:
 yay -S vlc
 
-How to Fix:
+Vim Based PDF Viewer:
+Vieb
+
+Mounting External Drives and How to Fix:
 An error occurred while accessing 'TOSHIBA 1TB', the system responded: The requested operation has failed: Error mounting /dev/sda1 at /run/media/kmi/TOSHIBA 1TB: wrong fs type, bad option, bad superblock on /dev/sda1, missing codepage or helper program, or other error
 
 Zero Identify Filesystem Type: sudo blkid /dev/sda1
@@ -76,6 +79,37 @@ Second Run Filesystem Repair: sudo ntfsfix /dev/sda1
 Third Manual Mounting: 
     sudo mkdir /mnt/toshiba
     sudo mount -t auto /dev/sda1 /mnt/toshiba
+
+To Install VM on QEMU:
+The Virtual Manager kindof works but the following command works far better,
+
+This will launch the VM without KVM,
+qemu-system-x86_64 \
+  -m 16G \
+  -smp 6 \
+  -cpu qemu64 \
+  -boot d \
+  -cdrom /home/kmi/Downloads/Win10_22H2_English_x32.iso \
+  -drive file=win10.img,format=qcow2,if=virtio \
+  -usb \
+  -device usb-kbd \
+  -device usb-tablet \
+  -vga qxl \
+  -display default,show-cursor=on \
+  -k en-us
+
+Once you've installed the VM you can run this command to open your VM,
+qemu-system-x86_64 \
+  -m 16G \
+  -smp 6 \
+  -cpu qemu64 \
+  -drive file=win10.img,format=qcow2,if=virtio \
+  -usb \
+  -device usb-kbd \
+  -device usb-tablet \
+  -vga qxl \
+  -display default,show-cursor=on \
+  -k en-us
 
 
 Some Ricing:
