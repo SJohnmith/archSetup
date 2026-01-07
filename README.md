@@ -4,12 +4,12 @@ Playing around with arch linux system.
 TO DO:
 1 - Learn to use Vim and customize it. 
 2 - Essentials: Image Viewer, Audio Player, Video Player, Alternatives to Word, Excel, Point.
-3 - Install: FreeCad, Godot 4, Inkscape, Steam, Discord.
+3 - Install: FreeCad, Godot 4, Inkscape, Steam, Discord. (Works in Hyprland, FreeCAD still having issues)
 
 THINGS TO TRY OUT:
-1 - Try KDE and Hyperland
-2 - Figure out recreate my setup on another machine quickly.
-3 - Learn how to set GTK ot QT theme to match GUI applications.
+1 - Try KDE and Hyperland (Manually install Hyprland and you get maximized resources usage)
+2 - Figure out recreate my setup on another machine quickly. (May need to use NixOS)
+3 - Learn how to set GTK ot QT theme to match GUI applications. (Won't need this)
 
 How to install FreeCAD 0.21.2:
 
@@ -111,6 +111,26 @@ qemu-system-x86_64 \
   -display default,show-cursor=on \
   -k en-us
 
+One last bit is that you will need VirtIO Driver ISO,
+Download this by running this command,
+wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso -O ~/Downloads/virtio-win.iso
 
-Some Ricing:
-https://www.reddit.com/r/unixporn/comments/1hh6pk6/kde_plasma_6_got_a_bit_too_excited_with/
+Then you can run this command,
+qemu-system-x86_64 \
+  -m 16G \
+  -smp 6 \
+  -cpu qemu64 \
+  -boot d \
+  -cdrom /home/kmi/Downloads/Win10_22H2_English_x32.iso \
+  -drive file=win10.img,format=qcow2,if=virtio \
+  -drive file=/home/kmi/Downloads/virtio-win.iso,media=cdrom \
+  -usb \
+  -device usb-kbd \
+  -device usb-tablet \
+  -vga qxl \
+  -display default,show-cursor=on \
+  -k en-us
+
+For AMD GPU not displaying screen but connecting to your PC try,
+sudo pacman -S mesa
+reboot
