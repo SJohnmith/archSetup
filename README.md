@@ -35,20 +35,20 @@ How to install Python 3.10.5:
     Step 3) Verify the installation with,
     python3.10 --version
     
-On KDE Plasma:
+## On KDE Plasma:
     To play certain games on KDE Plasma you will need to,
     Navigate to Display & Monitor --> Display Configuration --> Select you Main Monitor
     Scroll down to Legacy applications (X11) then,
     Select "Scaled by the system"
 
-Git:
+## Git:
 On a new OS when attempting to git push and get the following error,
 remote: Invalid username or token. Password authentication is not supported for Git operations.
 fatal: Authentication failed for 'https://github.com/SJohnmith/archSetup.git/'
 
 To resolve you will need to ...
 
-Arduino:
+## Arduino:
 To resolve the fatal esptool.py error occured see the following,
 https://forum.manjaro.org/t/arduino-ide-1-8-13-a-fatal-esptool-py-error-occurred-errno-2-could-not-open-port-dev-ttyusb0/168003
 or
@@ -63,7 +63,7 @@ Image Viewer:
 For personal use and functionality use geeqie simply run,
 sudo pacman -S geeqie
 
-Video Player:
+## Video Player:
 yay -S vlc
 
 Vim Based PDF Viewer:
@@ -134,3 +134,7 @@ qemu-system-x86_64 \
 For AMD GPU not displaying screen but connecting to your PC try,
 sudo pacman -S mesa
 reboot
+
+## To Access TrueNas over Arch 
+smb://<truenas_ip>/<share_name>
+Example: smb://192.168.1.50:name-of-stroage
